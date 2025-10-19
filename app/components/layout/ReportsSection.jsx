@@ -40,7 +40,7 @@ export default function ReportsAnalytics() {
         amount: parseFloat(i.amount || 0),
         date: new Date(i.dateTransact || i.$createdAt),
         patientId: i.patientId || "N/A",
-        patientName: t.patientName,
+        patientName: i.patientName,
       })),
     ];
 
