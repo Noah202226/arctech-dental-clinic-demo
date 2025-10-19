@@ -11,6 +11,7 @@ import { useTreatmentPlanStore } from "../../stores/useTreatmentPlanStore";
 import { usePaymentStore } from "@/app/stores/usePaymentStore";
 import PaymentModal from "./PaymentModal";
 import PaymentSectionCard from "./PaymentSectionCard";
+import PatientTeethPage from "../dental/PatientTeethPage";
 
 const DATABASE_ID = process.env.NEXT_PUBLIC_DATABASE_ID;
 const PATIENTS_COLLECTION_ID = "patients";
@@ -166,6 +167,8 @@ export default function ViewPatientDetailsModal({ patient, isOpen, onClose }) {
             <p className="mt-3 text-sm text-gray-600">
               Age: {calculateAge(updatedPatient.birthdate)} years old
             </p>
+
+            <PatientTeethPage patientId={patient.$id} />
 
             {/* Sections */}
             <div className="mt-6 border-t border-mint-300 pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
