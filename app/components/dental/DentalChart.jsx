@@ -37,9 +37,9 @@ export default function DentalChart({
   ];
 
   return (
-    <div className="space-y-4">
-      {/* Toolbar */}
-      <div className="flex flex-wrap gap-2 mb-2">
+    <div className="w-full text-center mt-4 space-y-6">
+      {/* STATUS BUTTONS */}
+      <div className="flex flex-wrap justify-center gap-2">
         {statuses.map((s) => (
           <button
             key={s.key}
@@ -58,84 +58,96 @@ export default function DentalChart({
         ))}
       </div>
 
-      {/* Chart */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Upper row */}
-        <div className="flex items-center justify-between">
-          {/* RIGHT (mirror horizontally visually) */}
-          <div className="w-1/2 grid grid-cols-8 gap-2 place-items-center">
-            {quadrant.upperRight.map((t) => (
-              <div key={t} className="flex flex-col items-center">
-                <Tooth
-                  tooth={t}
-                  surfaces={(teethData[t] && teethData[t].surfaces) || {}}
-                  onSurfaceClick={onSurfaceClick}
-                  onCenterClick={onOpenNote}
-                  statusColors={statusColors}
-                  size={56}
-                />
-                <div className="text-xs mt-1">{t}</div>
-              </div>
-            ))}
+      {/* UPPER ARCH */}
+      <div>
+        <h3 className="font-semibold mb-2">UPPER</h3>
+
+        <div className="grid grid-cols-2 gap-10 justify-items-center">
+          {/* UPPER RIGHT */}
+          <div>
+            <span className="text-sm font-medium block mb-2">RIGHT</span>
+            <div className="flex gap-1">
+              {quadrant.upperRight.map((t) => (
+                <div key={t} className="flex flex-col items-center">
+                  <Tooth
+                    tooth={t}
+                    surfaces={teethData[t]?.surfaces || {}}
+                    onSurfaceClick={onSurfaceClick}
+                    onCenterClick={onOpenNote}
+                    statusColors={statusColors}
+                    size={56}
+                  />
+                  <div className="text-xs mt-1">{t}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* CENTER (spacing / arch labels) */}
-          <div className="w-1/6 text-center text-sm text-gray-500">UPPER</div>
-
-          {/* LEFT */}
-          <div className="w-1/2 grid grid-cols-8 gap-2 place-items-center">
-            {quadrant.upperLeft.map((t) => (
-              <div key={t} className="flex flex-col items-center">
-                <Tooth
-                  tooth={t}
-                  surfaces={(teethData[t] && teethData[t].surfaces) || {}}
-                  onSurfaceClick={onSurfaceClick}
-                  onCenterClick={onOpenNote}
-                  statusColors={statusColors}
-                  size={56}
-                />
-                <div className="text-xs mt-1">{t}</div>
-              </div>
-            ))}
+          {/* UPPER LEFT */}
+          <div>
+            <span className="text-sm font-medium block mb-2">LEFT</span>
+            <div className="flex gap-1">
+              {quadrant.upperLeft.map((t) => (
+                <div key={t} className="flex flex-col items-center">
+                  <Tooth
+                    tooth={t}
+                    surfaces={teethData[t]?.surfaces || {}}
+                    onSurfaceClick={onSurfaceClick}
+                    onCenterClick={onOpenNote}
+                    statusColors={statusColors}
+                    size={56}
+                  />
+                  <div className="text-xs mt-1">{t}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Lower row */}
-        <div className="flex items-center justify-between">
-          {/* RIGHT */}
-          <div className="w-1/2 grid grid-cols-8 gap-2 place-items-center">
-            {quadrant.lowerRight.map((t) => (
-              <div key={t} className="flex flex-col items-center">
-                <Tooth
-                  tooth={t}
-                  surfaces={(teethData[t] && teethData[t].surfaces) || {}}
-                  onSurfaceClick={onSurfaceClick}
-                  onCenterClick={onOpenNote}
-                  statusColors={statusColors}
-                  size={56}
-                />
-                <div className="text-xs mt-1">{t}</div>
-              </div>
-            ))}
+      {/* LOWER ARCH */}
+      <div>
+        <h3 className="font-semibold mb-2">LOWER</h3>
+
+        <div className="grid grid-cols-2 gap-10 justify-items-center">
+          {/* LOWER RIGHT */}
+          <div>
+            <span className="text-sm font-medium block mb-2">RIGHT</span>
+            <div className="flex gap-1">
+              {quadrant.lowerRight.map((t) => (
+                <div key={t} className="flex flex-col items-center">
+                  <Tooth
+                    tooth={t}
+                    surfaces={teethData[t]?.surfaces || {}}
+                    onSurfaceClick={onSurfaceClick}
+                    onCenterClick={onOpenNote}
+                    statusColors={statusColors}
+                    size={56}
+                  />
+                  <div className="text-xs mt-1">{t}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="w-1/6 text-center text-sm text-gray-500">LOWER</div>
-
-          {/* LEFT */}
-          <div className="w-1/2 grid grid-cols-8 gap-2 place-items-center">
-            {quadrant.lowerLeft.map((t) => (
-              <div key={t} className="flex flex-col items-center">
-                <Tooth
-                  tooth={t}
-                  surfaces={(teethData[t] && teethData[t].surfaces) || {}}
-                  onSurfaceClick={onSurfaceClick}
-                  onCenterClick={onOpenNote}
-                  statusColors={statusColors}
-                  size={56}
-                />
-                <div className="text-xs mt-1">{t}</div>
-              </div>
-            ))}
+          {/* LOWER LEFT */}
+          <div>
+            <span className="text-sm font-medium block mb-2">LEFT</span>
+            <div className="flex gap-1">
+              {quadrant.lowerLeft.map((t) => (
+                <div key={t} className="flex flex-col items-center">
+                  <Tooth
+                    tooth={t}
+                    surfaces={teethData[t]?.surfaces || {}}
+                    onSurfaceClick={onSurfaceClick}
+                    onCenterClick={onOpenNote}
+                    statusColors={statusColors}
+                    size={56}
+                  />
+                  <div className="text-xs mt-1">{t}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

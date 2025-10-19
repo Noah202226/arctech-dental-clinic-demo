@@ -168,7 +168,9 @@ export default function ViewPatientDetailsModal({ patient, isOpen, onClose }) {
               Age: {calculateAge(updatedPatient.birthdate)} years old
             </p>
 
-            <PatientTeethPage patientId={patient.$id} />
+            <div className="w-full mt-3">
+              <PatientTeethPage patientId={patient.$id} />
+            </div>
 
             {/* Sections */}
             <div className="mt-6 border-t border-mint-300 pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
